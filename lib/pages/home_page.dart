@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxguard/util/emotion_face.dart';
+import 'package:taxguard/util/exercise_tile.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -14,8 +15,8 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.blue[800],
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.message),label: "message"),
+        BottomNavigationBarItem(icon: Icon(Icons.person),label: "person"),
 
       ]),
       body: SafeArea(
@@ -221,18 +222,30 @@ class _HomePageState extends State<HomePage> {
                         height: 20,
                       ),
                       //Listview of exercise
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
+                      Expanded(
+                        child: ListView(
+                          children: [
+                            ExerciseTile(
+                              icon: Icons.favorite,
+                              exerciseName: "Speaking Skills",
+                              numberofExercises: 16,
+                              color: Colors.orange,
+                            ),
+                            ExerciseTile(
+                              icon: Icons.person,
+                              exerciseName: "Reading Skills",
+                              numberofExercises: 8,
+                              color: Colors.green,
+                            ),
+                            ExerciseTile(
+                              icon: Icons.star,
+                              exerciseName: "Writing Skills",
+                              numberofExercises: 20,
+                              color: Colors.pink,
+                            ),
+                          ],
                         ),
-                        child: ListTile(
-                          leading: Icon(Icons.favorite),
-                          title: Text("Speaking Skills"),
-                          subtitle: Text("15 Exercises"),
-                        ),
-                      ),
-
+                      )
                   ],
 
                   ),
